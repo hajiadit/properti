@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capital 21 Properti</title>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      /* Hilangkan scrollbar horizontal */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .mask-fade-right {
+        -webkit-mask-image: linear-gradient(to left, transparent 2%, black 40%);
+        mask-image: linear-gradient(to left, transparent 2%, black 40%);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+      }
+
+      .font-handwriting {
+        font-family: "Parisienne", cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="shadow-xs fixed w-full z-50 bg-white">
+      <div class="max-w-7xl mx-auto md:px-30 px-8 flex justify-between items-center py-3">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <a href="#"><img src="logo-properti.png" alt="logo" class="w-40" /></a>
+          <img src="logo2.jpeg" alt="logo2" class="w-10" />
+        </div>
+
+        <!-- Navigation - Desktop -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="#" class="relative inline-block text-sm text-gray-600 hover:text-green-600 group">
+            HOME
+            <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="lokasi.html" class="relative inline-block text-sm text-gray-600 hover:text-green-600 group">
+            LOKASI
+            <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="tentang.html" class="relative inline-block text-sm text-gray-600 hover:text-green-600 group">
+            TENTANG KAMI
+            <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </nav>
+
+        <!-- Contact - Desktop -->
+        <div class="hidden md:flex">
+          <a href="#" class="flex gap-2 items-center justify-center text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg"><i data-lucide="phone"></i>Contact</a>
+        </div>
+
+        <!-- Hamburger Button - Mobile -->
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden fixed top-0 right-0 w-full h-full bg-white transform translate-x-full transition-transform duration-300 z-50">
+      <div class="flex justify-between items-center px-[30px] py-4 mt-10">
+        <img src="logo-properti.png" alt="logo" class="w-40" />
+        <button id="closeMobileMenu" class="text-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="ml-6 mt-5">
+        <hr class="text-gray-200 text-center w-70" />
+      </div>
+
+      <nav class="flex flex-col space-y-6 px-[30px] py-8 text-[17px] font-medium">
+        <a href="#" class="flex items-center gap-3 text-gray-700 hover:text-green-600">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M13 5v12"></path></svg>
+          Home
+        </a>
+
+        <a href="lokasi.html" class="flex items-center gap-3 text-gray-700 hover:text-green-600">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 12.414A6 6 0 104.929 4.929a6 6 0 008.485 8.485l4.243 4.243z"></path>
+          </svg>
+          Lokasi
+        </a>
+
+        <a href="tentang.html" class="flex items-center gap-3 text-gray-700 hover:text-green-600">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+          Tentang Kami
+        </a>
+
+        <!-- Contact Button -->
+        <a href="#" class="relative inline-block text-white bg-green-600 hover:bg-green-700 px-5 py-2 rounded-full w-fit group">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Contact
+          </span>
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </nav>
+
+      <div class="ml-6 mt-5">
+        <hr class="text-gray-200 text-center w-70" />
+      </div>
+
+      <!-- Contact Info -->
+      <div class="px-[30px] mt-6 pt-4 text-sm text-gray-600 space-y-6">
+        <p class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m6 2h2a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2" />
+          </svg>
+          Senin - Jumat, 08.00 - 17.00
+        </p>
+        <p class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z" />
+          </svg>
+          info@properti.com
+        </p>
+        <p class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10l1.543 5.772A2 2 0 006.46 18h11.08a2 2 0 001.917-2.228L21 10M5 10l7 5 7-5" />
+          </svg>
+          (+62) 812-3456-7890
+        </p>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+
+    <section class="w-full py-16 md:px-30 bg-green-600">
+      <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center mt-25">
+        <!-- Deskripsi -->
+        <div class="text-center md:text-left md:ml-10 md:w-370" data-aos="fade-right">
+          <h1 class="text-5xl md:text-6xl text-white mb-4 font-handwriting">Capital 21 Properti</h1>
+          <p class="text-md text-gray-300 mb-6 leading-relaxed">Kami hadirkan berbagai pilihan rumah minimalis dengan desain elegan, siap huni dan berada di lokasi terbaik. Temukan rumah yang cocok untuk keluarga Anda.</p>
+          <a href="#tipe-rumah" class="inline-block bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition">Let's Get Started</a>
+        </div>
+
+        <!-- Gambar -->
+        <div class="relative md:mr-10">
+          <img src="new.png" alt="Model Rumah" class="w-360 mx-auto md:ml-0 mask-fade-right" />
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col items-center bg-white">
+      <!-- Deskripsi Proyek -->
+      <div class="w-full max-w-5xl px-4 md:px-8 py-8 text-center mt-10" data-aos="fade-up">
+        <h2 class="text-sm font-semibold text-blue-700 tracking-widest mb-2">TIPE UNIT DAN LOKASI</h2>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">CAPITAL PROPERTI 21</h1>
+        <hr class="mt-3 mb-4 text-gray-200" />
+        <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          Kami menghadirkan pilihan hunian eksklusif di berbagai kawasan strategis Surabaya dan sekitarnya. Desain rumah bergaya urban modern minimalis dengan tata ruang yang compact dan fungsional, memudahkan Anda dalam mengatur furnitur
+          maupun dekorasi agar tampil estetik.
+        </p>
+        <p class="text-gray-600 leading-relaxed mt-4 max-w-3xl mx-auto">
+          Harga rumah di proyek Capital 21 Properti tersedia mulai dari <span class="font-semibold text-blue-700">Rp 600 juta</span> hingga <span class="font-semibold text-blue-700">Rp 1,2 miliar</span>.
+        </p>
+      </div>
+
+      <!-- Wilayah Navigation -->
+      <div class="px-4 md:px-8 py-6 w-full bg-white">
+        <div class="flex justify-center">
+          <div class="flex gap-4 overflow-x-auto no-scrollbar whitespace-nowrap border-b border-gray-200 pb-2 px-4 mx-auto" id="region-tabs">
+            <button class="font-semibold text-green-600 border-b-2 border-green-600 px-4 py-2" data-region="surabaya">Surabaya Timur</button>
+            <button class="text-gray-500 hover:text-green-700 px-4 py-2" data-region="jakarta">Surabaya Barat</button>
+            <button class="text-gray-500 hover:text-green-700 px-4 py-2" data-region="bandung">Surabaya Utara</button>
+            <button class="text-gray-500 hover:text-green-700 px-4 py-2" data-region="makassar">Surabaya Selatan</button>
+            <button class="text-gray-500 hover:text-green-700 px-4 py-2" data-region="malang">Sidoarjo</button>
+            <button class="text-gray-500 hover:text-green-700 px-4 py-2" data-region="samarinda">Menganti</button>
+            <button class="text-gray-500 hover:text-green-700 px-4 py-2" data-region="samarinda">Gresik</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unit Section -->
+      <div class="w-full md:px-30 px-4 py-8 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-6">
+          <!-- Card 1 -->
+          <div class="rounded-2xl overflow-hidden shadow-md bg-white w-full md:max-w-xs max-w-sm hover:shadow-xl transition">
+            <div class="overflow-hidden">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1686090449192-4ab1d00cb735?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Unit Example"
+                class="w-full h-52 object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div class="p-5">
+              <h4 class="text-md font-semibold text-gray-800 mb-1">Chalidana Group - Type Pansy</h4>
+              <hr class="mt-4 mb-4 text-gray-200" />
+              <p class="text-green-600 font-semibold text-2xl mb-5">Rp 690 Juta</p>
+
+              <div class="flex items-center justify-center text-xs text-gray-500 mb-5 gap-2">
+                <div class="flex items-center gap-1"><i data-lucide="home"></i> 5 KT</div>
+                <div class="flex items-center gap-1"><i data-lucide="gauge"></i> 3 KM</div>
+                <div class="flex items-center gap-1"><i data-lucide="ruler"></i> 126 m<sup>2</sup></div>
+                <div class="flex items-center gap-1"><i data-lucide="square"></i> 123 m<sup>2</sup></div>
+              </div>
+
+              <div class="flex justify-end gap-3">
+                <a href="detail.html" class="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition">Detail Unit</a>
+                <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2 hover:bg-green-700 transition"><i data-lucide="phone"></i> Booking</button>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-md bg-white w-full md:max-w-xs max-w-sm hover:shadow-xl transition">
+            <div class="overflow-hidden">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1687996107399-9b68475e365c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Unit Example"
+                class="w-full h-52 object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div class="p-5">
+              <h4 class="text-md font-semibold text-gray-800 mb-1">Chalidana Group - Type Pansy</h4>
+              <hr class="mt-4 mb-4 text-gray-200" />
+              <p class="text-green-600 font-semibold text-2xl mb-5">Rp 743 Juta</p>
+
+              <div class="flex items-center justify-center text-xs text-gray-500 mb-5 gap-2">
+                <div class="flex items-center gap-1"><i data-lucide="home"></i> 5 KT</div>
+                <div class="flex items-center gap-1"><i data-lucide="gauge"></i> 3 KM</div>
+                <div class="flex items-center gap-1"><i data-lucide="ruler"></i> 126 m<sup>2</sup></div>
+                <div class="flex items-center gap-1"><i data-lucide="square"></i> 123 m<sup>2</sup></div>
+              </div>
+
+              <div class="flex justify-end gap-3">
+                <a href="detail.html" class="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition">Detail Unit</a>
+                <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2 hover:bg-green-700 transition"><i data-lucide="phone"></i> Booking</button>
+              </div>
+            </div>
+          </div>
+          <!-- Copy card ini jika ingin tambah -->
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-10 text-center">
+          <a href="detail.html" id="cta-button" class="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition">Lihat Semua Unit</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keunggulan Capital 21 (4 Keunggulan, 1 Baris) -->
+    <section class="w-full bg-gray-50 py-24">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 text-center" data-aos="fade-right">
+        <h2 class="text-sm font-semibold text-blue-700 tracking-widest mb-2">KEUNGGULAN</h2>
+        <h3 class="text-3xl md:text-3xl font-bold text-gray-800 mb-10">MENGAPA PILIH CAPITAL 21 PROPERTI?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+          <!-- 1 -->
+          <div class="p-6 hover:shadow-md transition">
+            <div class="text-blue-700 mb-4">
+              <i data-lucide="map-pin" class="w-7 h-7"></i>
+            </div>
+            <h4 class="text-lg font-semibold mb-2">Lokasi Strategis</h4>
+            <p class="text-gray-600 text-sm">Dekat tol, pusat kota, sekolah, dan fasilitas umum di berbagai wilayah Surabaya dan sekitarnya.</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="p-6 hover:shadow-md transition">
+            <div class="text-blue-700 mb-4">
+              <i data-lucide="home" class="w-7 h-7"></i>
+            </div>
+            <h4 class="text-lg font-semibold mb-2">Desain Modern</h4>
+            <p class="text-gray-600 text-sm">Tampilan minimalis urban yang fungsional dan estetik, mudah disesuaikan dengan gaya hidup Anda.</p>
+          </div>
+
+          <!-- 3 -->
+          <div class="p-6 hover:shadow-md transition">
+            <div class="text-blue-700 mb-4">
+              <i data-lucide="check-circle" class="w-7 h-7"></i>
+            </div>
+            <h4 class="text-lg font-semibold mb-2">Legalitas Aman</h4>
+            <p class="text-gray-600 text-sm">Surat lengkap (SHM/HGB), proses transparan, dan dukungan penuh selama proses pembelian.</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="p-6 hover:shadow-md transition">
+            <div class="text-blue-700 mb-4">
+              <i data-lucide="dollar-sign" class="w-7 h-7"></i>
+            </div>
+            <h4 class="text-lg font-semibold mb-2">Harga Kompetitif</h4>
+            <p class="text-gray-600 text-sm">Mulai dari Rp 1,12 M, pilihan fleksibel, dan tersedia skema pembiayaan KPR ringan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-white py-16">
+      <div class="max-w-4xl mx-auto px-4 md:px-8">
+        <h2 class="text-sm font-semibold text-blue-700 tracking-widest mb-2 text-center">PERTANYAAN UMUM</h2>
+        <h3 class="text-3xl font-bold text-gray-800 text-center mb-10">FAQ Capital 21 Properti</h3>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center font-medium text-gray-800 hover:bg-gray-50 transition" onclick="toggleFAQ(this)">
+              Apakah unit bisa dibeli secara KPR?
+              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 text-sm text-gray-600 hidden">Ya, semua unit bisa dibeli melalui skema KPR dari berbagai bank terpercaya. Tim kami siap membantu prosesnya dari awal hingga akad.</div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center font-medium text-gray-800 hover:bg-gray-50 transition" onclick="toggleFAQ(this)">
+              Apakah harga sudah termasuk PPN dan biaya lainnya?
+              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 text-sm text-gray-600 hidden">Harga belum termasuk PPN dan biaya-biaya seperti AJB, SHM/HGB, dan BPHTB. Namun kami menyediakan simulasi lengkap saat konsultasi.</div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center font-medium text-gray-800 hover:bg-gray-50 transition" onclick="toggleFAQ(this)">
+              Berapa lama proses akad hingga serah terima rumah?
+              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 text-sm text-gray-600 hidden">Tergantung progres pembangunan dan metode pembayaran. Untuk unit ready stock, prosesnya bisa selesai dalam 1–3 bulan.</div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center font-medium text-gray-800 hover:bg-gray-50 transition" onclick="toggleFAQ(this)">
+              Apakah bisa request desain atau renovasi?
+              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 text-sm text-gray-600 hidden">Untuk beberapa proyek tertentu, kami menyediakan opsi kustomisasi layout atau finishing. Konsultasikan dengan sales kami terlebih dahulu.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-green-600 text-white pt-16 pb-8">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Brand Info -->
+        <div>
+          <h2 class="text-2xl font-bold text-white mb-3">Capital 21 Properti</h2>
+          <p class="text-sm leading-relaxed text-white">Solusi hunian modern di berbagai wilayah strategis Surabaya, Sidoarjo, dan sekitarnya. Aman, legal, dan siap huni.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <h3 class="text-white font-semibold mb-4">Menu</h3>
+          <ul class="space-y-2 text-sm text-white">
+            <li><a href="#units" class="hover:text-gray-800">Tipe Unit</a></li>
+            <li><a href="#keunggulan" class="hover:text-gray-800">Keunggulan</a></li>
+            <li><a href="#faq" class="hover:text-gray-800">FAQ</a></li>
+            <li><a href="#kontak" class="hover:text-gray-800">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Lokasi -->
+        <div>
+          <h3 class="text-white font-semibold mb-4">Lokasi Proyek</h3>
+          <ul class="space-y-2 text-sm text-white">
+            <li>Surabaya Timur</li>
+            <li>Surabaya Barat</li>
+            <li>Sidoarjo</li>
+            <li>Gresik & Sekitarnya</li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div>
+          <h3 class="text-white font-semibold mb-4">Hubungi Kami</h3>
+          <ul class="space-y-3 text-sm text-white">
+            <li><i data-lucide="map-pin" class="inline w-4 h-4 mr-2"></i> Jl. Proyek Properti No.21, Surabaya</li>
+            <li><i data-lucide="phone" class="inline w-4 h-4 mr-2"></i> 0812-3456-7890</li>
+            <li><i data-lucide="mail" class="inline w-4 h-4 mr-2"></i> info@capital21.co.id</li>
+            <li class="flex space-x-4 mt-3">
+              <a href="#" class="hover:text-gray-300"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+              <a href="#" class="hover:text-gray-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+              <a href="#" class="hover:text-gray-300"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Footer -->
+      <div class="mt-12 pt-6 text-center text-sm text-white">© 2025 Capital 21 Properti. All rights reserved.</div>
+    </footer>
+
+    <!-- Lucide Icon Init -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // durasi animasi dalam ms
+        once: true, // animasi hanya terjadi sekali
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
